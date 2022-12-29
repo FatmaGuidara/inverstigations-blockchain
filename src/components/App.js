@@ -4,6 +4,13 @@ import Navbar from './Navbar'
 import Main from './Main'
 import Web3 from 'web3';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+import Login from './Login';
 
 const ipfsClient = require('ipfs-http-client')
 const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }) // leaving out the arguments will default to these values
@@ -119,17 +126,29 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <Router>
         <Navbar account={this.state.account} />
-        { this.state.loading
-          ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
-          : <Main
+        <Routes>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/" element={<Main
               files={this.state.files}
               captureFile={this.captureFile}
               uploadFile={this.uploadFile}
-            />
-        }
-      </div>
+            />}/>
+        </Routes>
+      </Router>
+      // <div>
+        
+      //   {/* <Login /> */}
+      //   { this.state.loading
+      //     ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
+          // : <Main
+          //     files={this.state.files}
+          //     captureFile={this.captureFile}
+          //     uploadFile={this.uploadFile}
+          //   />
+      //   }
+      // </div>
     );
   }
 }
