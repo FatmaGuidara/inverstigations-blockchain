@@ -13,7 +13,7 @@ import {
 import Login from './Login';
 
 const ipfsClient = require('ipfs-http-client')
-const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }) // leaving out the arguments will default to these values
+const ipfs = ipfsClient({ host: 'localhost', port: 5002, protocol: 'http' }) // leaving out the arguments will default to these values
 
 class App extends Component {
 

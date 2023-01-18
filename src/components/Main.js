@@ -90,7 +90,7 @@ class Main extends Component {
                          </td>
                         <td>
                           <a
-                            href={"https://ipfs.infura.io/ipfs/" + file.fileHash}
+                            href={"https://ipfs.io/ipfs/" + file.fileHash}
                             rel="noopener noreferrer"
                             target="_blank">
                             {file.fileHash.substring(0,10)}...
